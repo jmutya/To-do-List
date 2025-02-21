@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -19,21 +20,24 @@ const AddTodo = () => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
 
-  const id = Math.floor(Math.random()*10);
+  const id = Math.floor(Math.random() * 10);
 
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    if (!title.trim() || !description.trim() || !date.trim()) {
+      alert("All fields are required!"); // Show an alert if any field is empty
+      return;
+    }
     try {
-      const response  = await axios.post("http://localhost:3000/todolist", {
+      const response = await axios.post("http://localhost:3000/todolist", {
         id: id.toString(),
         title,
         description,
         date,
       });
 
-      navigate("/")
-      
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -60,13 +64,31 @@ const AddTodo = () => {
               />
             </div>
             <div className="gap-y-2">
-              <Label>Date</Label>
-              <Input value={date} onChange={(e) => setDate(e.target.value)} />
+              <Label htmlFor="date">Date</Label>
+              <Input
+                id="date"
+                type="date" // Enables the calendar picker
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="px-3 py-2 border rounded-md"
+              />
             </div>
-            <Button onClick={handleSubmit}>Add To Do</Button>
+
+            <Button
+              onClick={handleSubmit}
+              className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+            >
+              Add To Do
+            </Button>
+            <Button
+              onClick={() => navigate("/")}
+              className="px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500"
+            >
+              Back
+            </Button>
           </CardContent>
           <CardFooter className="flex justify-between">
-            <h1>Made with ♥ by Mario Inguito</h1>
+            <h1>© All Right Reserved 2025</h1>
           </CardFooter>
         </Card>
       </div>
