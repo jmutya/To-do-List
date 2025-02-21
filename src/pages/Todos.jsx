@@ -44,7 +44,7 @@ const Todos = () => {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <h1>Made with ♥ by Mario Inguito</h1>
+          <h1>© All Right Reserved 2025</h1>
         </CardFooter>
       </Card>
     </div>
