@@ -2,7 +2,7 @@
   "todolist": [
     {
       "title": "i want to do today",
-      "description": "i have something in mind, please make me happy",
+      "description": "step 1 to step 2",
       "id": "4"
     },
     {
@@ -16,16 +16,14 @@
       "id": "3"
     },
     {
-      "id": "4",
-      "title": "asd",
-      "description": "asd",
-      "date": "2025-02-06"
+      "title": "i edited this text",
+      "description": "testing this edit",
+      "id": "6"
     },
     {
-      "id": "9",
-      "title": "d",
-      "description": "asd",
-      "date": "2025-01-27"
+      "title": "this is an edit",
+      "description": "hekhek",
+      "id": "9"
     }
   ]
 }
